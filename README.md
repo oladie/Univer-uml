@@ -1,2 +1,3 @@
 # Univer-uml
-Практичні завдання з UML
+VS Code + PlantUML(plugin)
+Open the file and press Alt+D 
