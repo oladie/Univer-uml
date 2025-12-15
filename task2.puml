@@ -1,0 +1,36 @@
+@startuml
+class LibraryItem {
+  - itemId : int
+  - title : String
+  - author : String
+  + getDetails() : String
+}
+
+class Member {
+  - memberId : int
+  - fullName : String
+  - email : String
+  + borrowItem() : void
+  + returnItem() : void
+}
+
+class Transaction {
+  - transactionId : int
+  - issueDate : Date
+  - dueDate : Date
+  + completeTransaction() : void
+}
+
+class Staff {
+  - staffId : int
+  - name : String
+  + addItem() : void
+  + removeItem() : void
+}
+
+' Связи
+Member "1" -- "1..*" Transaction : association
+LibraryItem "1" -- "1..*" Transaction : association
+
+Staff "1" o-- "*" LibraryItem : aggregation
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+actor Customer
+participant POS as "POS/WebApp"
+participant OrderService
+participant PaymentService
+participant NotificationService
+
+Customer -> POS : Выбирает напитки и нажимает "Оплатить"
+POS -> OrderService : Создает заказ
+OrderService -> PaymentService : Оплата заказа
+PaymentService --> OrderService : Подтверждение оплаты
+OrderService --> POS : Заказ создан
+POS -> NotificationService : Отправить подтверждение
+NotificationService --> POS : Подтверждение отправлено
+POS --> Customer : Показать подтверждение заказа
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+actor Customer
+actor Barista
+
+rectangle "Кофейня" {
+  Customer --> (Просмотр меню)
+  Customer --> (Сделать заказ)
+  Customer --> (Оплата заказа)
+  Customer --> (Получение подтверждения)
+
+  Barista --> (Управление напитками)
+
+  (Оплата заказа) .> (Проверка платежа) : <<include>>
+  (Получение подтверждения) .> (Отправка email/SMS) : <<include>>
+}
+@enduml

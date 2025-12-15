@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant WebApp
+participant OrderService
+participant PaymentService
+participant EmailService
+
+== Оформлення замовлення ==
+
+User -> WebApp : Вибирає товар
+WebApp -> OrderService : Створює замовлення
+OrderService -> PaymentService : Підтверджує оплату
+PaymentService --> OrderService : Платіж підтверджено
+OrderService --> WebApp : Замовлення створено
+WebApp -> EmailService : Надіслати email підтвердження
+EmailService --> WebApp : Email надіслано
+WebApp --> User : Підтвердження замовлення
+@enduml

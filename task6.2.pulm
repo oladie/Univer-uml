@@ -1,0 +1,34 @@
+@startuml
+class Напиток {
+  - idНапитка : int
+  - название : String
+  - цена : float
+  + получитьИнформацию() : String
+}
+
+class Клиент {
+  - idКлиента : int
+  - имя : String
+  - email : String
+  + добавитьВЗаказ() : void
+  + оформитьЗаказ() : void
+}
+
+class Заказ {
+  - idЗаказа : int
+  - датаЗаказа : Date
+  - статус : String
+  + рассчитатьИтог() : float
+}
+
+class Оплата {
+  - idОплаты : int
+  - сумма : float
+  - статус : String
+  + провестиОплату() : void
+}
+
+Клиент "1" -- "1..*" Заказ : association
+Заказ "1" -- "1..*" Напиток : association
+Заказ "1" --> "1" Оплата : association
+@enduml

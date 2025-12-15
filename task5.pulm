@@ -1,0 +1,11 @@
+@startuml
+package "Online Food Ordering System" {
+
+  [Web Client] --> [Backend API] : REST API / GraphQL
+  [Backend API] --> [Database] : SQL Queries
+  [Backend API] --> [Payment Service] : Payment API
+  [Backend API] --> [Notification Service] : Notify API
+  [Payment Service] --> [Database] : Update Payment Status
+  [Notification Service] --> [Web Client] : Push / Email
+}
+@enduml
